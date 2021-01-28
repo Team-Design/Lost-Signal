@@ -43,10 +43,14 @@ public class DoorController : MonoBehaviour
 
     void OnKeyPressed()
     {
-        if (!_isTerbuka)
+        if (Input.GetKey(KeyCode.E) && playerIsInArea)
         {
-            _isTerbuka = true;
+            if (!_isTerbuka)
+            {
+                _isTerbuka = true;
+            }
         }
+        
     }
 
     public void ChangeSide()
@@ -57,6 +61,10 @@ public class DoorController : MonoBehaviour
         }
         else
         {
+            if (Input.GetKey(KeyCode.E) && playerIsInArea)
+            {
+
+            }
             _isTerbuka = false;
         }
     }

@@ -8,10 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private int chance;
-
-    public GameObject[] doors;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
