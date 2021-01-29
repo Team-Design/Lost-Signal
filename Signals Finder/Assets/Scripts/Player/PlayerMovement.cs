@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isChooseDoor6;
 
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
 
     public GameObject[] doors;
     public GameObject portal;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void SetBack()
@@ -50,6 +52,15 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * move_speed, rb.velocity.y);
+
+        if (rb.velocity.x >= 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else 
+        {
+            spriteRenderer.flipX = false;
+        }
 
         // ============= 1 =======================
         if (isChooseDoor2 && isChooseDoor3)
