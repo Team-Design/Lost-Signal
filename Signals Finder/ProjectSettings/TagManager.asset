@@ -11,6 +11,14 @@ TagManager:
   - door5
   - door6
   - Marker
+  - door7
+  - door8
+  - door9
+  - door10
+  - door11
+  - door12
+  - door1dan5
+  - door2dan3
   layers:
   - Default
   - TransparentFX

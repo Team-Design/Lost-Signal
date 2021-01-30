@@ -7,7 +7,9 @@ public class SignalScript : MonoBehaviour
 {
     private Slider signal_bar;
 
-    public float signal_lost_time = 0.05f;
+    public GameObject GameOverUI;
+
+    public float signal_lost_time;
 
     private void Awake()
     {
@@ -17,5 +19,11 @@ public class SignalScript : MonoBehaviour
     private void Update()
     {
         signal_bar.value -= signal_lost_time * Time.deltaTime;
+
+        if (signal_bar.value <= 0)
+        {
+            // ui gagal muncul
+            GameOverUI.SetActive(true);
+        }
     }
 }
