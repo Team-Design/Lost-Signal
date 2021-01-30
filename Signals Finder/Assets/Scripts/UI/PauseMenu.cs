@@ -137,7 +137,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Quit()
     {
-        //Application.Quit();
+        SceneManager.LoadScene("LevelChooser");
     }
 
     public void BackToTitle()
