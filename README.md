@@ -9,4 +9,4 @@ In this game, the player acts as Mas Bucin. To go to the rooftop, the player mus
 **Play the game [here](https://sun-wise-man.itch.io/lost-signal)**<br>
 <br>
 ## Engine Used<br>
-Using Unity Engine version 2019.415f1
+Using Unity Engine version 2019.4.15f1
