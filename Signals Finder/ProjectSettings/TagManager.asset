@@ -19,6 +19,7 @@ TagManager:
   - door12
   - door1dan5
   - door2dan3
+  - Deactivate
   layers:
   - Default
   - TransparentFX

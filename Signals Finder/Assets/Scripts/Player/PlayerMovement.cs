@@ -84,82 +84,136 @@ public class PlayerMovement : MonoBehaviour
 
     void SetBack()
     {
-        foreach (GameObject door in doors)
+        if (PortalScript.IsInLantai == 1)
         {
-            if (door != null)
+            foreach (GameObject door in doors)
             {
-                door.SetActive(true);
-            } 
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
+            }
         }
 
-        foreach (GameObject door in doors1)
+
+        if (PortalScript.IsInLantai == 2)
         {
-            if (door != null)
+            foreach (GameObject door in doors1)
             {
-                door.SetActive(true);
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
             }
         }
-        foreach (GameObject door in doors2)
+            
+        if (PortalScript.IsInLantai == 3)
         {
-            if (door != null)
+            foreach (GameObject door in doors2)
             {
-                door.SetActive(true);
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
             }
         }
-        foreach (GameObject door in doors3)
+        
+        if (PortalScript.IsInLantai == 4)
         {
-            if (door != null)
+            foreach (GameObject door in doors3)
             {
-                door.SetActive(true);
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
             }
         }
-        foreach (GameObject door in doors4)
+        
+        if (PortalScript.IsInLantai == 5)
         {
-            if (door != null)
+            foreach (GameObject door in doors4)
             {
-                door.SetActive(true);
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
             }
         }
-        foreach (GameObject door in doors5)
+        
+        if (PortalScript.IsInLantai == 6)
         {
-            if (door != null)
+            foreach (GameObject door in doors5)
             {
-                door.SetActive(true);
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
             }
         }
-        foreach (GameObject door in doors6)
+        
+        if (PortalScript.IsInLantai == 7)
         {
-            if (door != null)
+            foreach (GameObject door in doors6)
             {
-                door.SetActive(true);
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
             }
         }
-        foreach (GameObject door in doors7)
+        
+        if (PortalScript.IsInLantai == 8)
         {
-            if (door != null)
+            foreach (GameObject door in doors7)
             {
-                door.SetActive(true);
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
             }
         }
-        foreach (GameObject door in doors8)
+        
+        if (PortalScript.IsInLantai == 9)
         {
-            if (door != null)
+            foreach (GameObject door in doors8)
             {
-                door.SetActive(true);
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
             }
         }
-        foreach (GameObject door in doors9)
+        
+        if (PortalScript.IsInLantai == 10)
         {
-            if (door != null)
+            foreach (GameObject door in doors9)
             {
-                door.SetActive(true);
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
             }
         }
-        foreach (GameObject door in doors10)
+        
+        if (PortalScript.IsInLantai == 11)
         {
-            if (door != null)
+            foreach (GameObject door in doors10)
             {
-                door.SetActive(true);
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
+            }
+        }
+        
+        if (PortalScript.IsInLantai == 12)
+        {
+            foreach (GameObject door in doors11)
+            {
+                if (door != null)
+                {
+                    door.SetActive(true);
+                }
             }
         }
     }
@@ -183,6 +237,41 @@ public class PlayerMovement : MonoBehaviour
         isChooseDoor2dan3 = false;
     }
 
+    void ActivateTagLantai1()
+    {
+        doors[0].gameObject.tag = "door1";
+        doors[1].gameObject.tag = "door2";
+        doors[2].gameObject.tag = "door3";
+        doors[3].gameObject.tag = "door4";
+        doors[4].gameObject.tag = "door5";
+        doors[5].gameObject.tag = "door6";
+        doors[6].gameObject.tag = "door7";
+        doors[7].gameObject.tag = "door8";
+        doors[8].gameObject.tag = "door9";
+        doors[9].gameObject.tag = "door10";
+        doors[10].gameObject.tag = "door11";
+        doors[11].gameObject.tag = "door12";
+        doors[12].gameObject.tag = "door2dan3";
+        doors[13].gameObject.tag = "door1dan5";
+    }
+    public void ActivateTagLantai2()
+    {
+        doors1[0].gameObject.tag = "door1";
+        doors1[1].gameObject.tag = "door2";
+        doors1[2].gameObject.tag = "door3";
+        doors1[3].gameObject.tag = "door4";
+        doors1[4].gameObject.tag = "door5";
+        doors1[5].gameObject.tag = "door6";
+        doors1[6].gameObject.tag = "door7";
+        doors1[7].gameObject.tag = "door8";
+        doors1[8].gameObject.tag = "door9";
+        doors1[9].gameObject.tag = "door10";
+        doors1[10].gameObject.tag = "door11";
+        doors1[11].gameObject.tag = "door12";
+        doors1[12].gameObject.tag = "door2dan3";
+        doors1[13].gameObject.tag = "door1dan5";
+    }
+
     private void FixedUpdate()
     {
 
@@ -201,18 +290,24 @@ public class PlayerMovement : MonoBehaviour
 
         if (PortalScript.IsInLantai == 1)
         {
-            if (Application.loadedLevelName == "Level3" || Application.loadedLevelName == "Level4" || Application.loadedLevelName == "Level")
+            /*if (Application.loadedLevelName == "Level3" || Application.loadedLevelName == "Level4" || Application.loadedLevelName == "Level")
             {
                 doorTiapLantai2.SetActive(false);
-            }
+            }*/
             
+            foreach (GameObject door in doors1)
+            {
+                door.gameObject.tag = "Deactivate";
+            }
         }
         if (PortalScript.IsInLantai == 2)
         {
-            if (Application.loadedLevelName == "Level3" || Application.loadedLevelName == "Level4" || Application.loadedLevelName == "Level")
+            /*if (Application.loadedLevelName == "Level3" || Application.loadedLevelName == "Level4" || Application.loadedLevelName == "Level")
             {
                 doorTiapLantai2.SetActive(true);
-            }
+            }*/
+
+
         }
 
         // ============= 1 =======================
