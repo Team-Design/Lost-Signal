@@ -1,0 +1,6 @@
+Format Penamaan Asset :
+<jenisAset>_<namaAset>_<Credit>_<version>
+
+contoh :
+Sfx_Click1_www.bensound.com_V01.wav
+

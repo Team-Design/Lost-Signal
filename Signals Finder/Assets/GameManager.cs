@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-        public void LevelChooser()
+    public void LevelChooser()
     {
         SceneManager.LoadScene("LevelChooser");
     }
