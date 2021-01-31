@@ -5,6 +5,31 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float move_speed;
+    public Animator LockAnim;
+    public Animator LockAnim1;
+    public Animator LockAnim2;
+    public Animator LockAnim3;
+    public Animator LockAnim4;
+    public Animator LockAnim5;
+    public Animator LockAnim6;
+    public Animator LockAnim7;
+    public Animator LockAnim8;
+    public Animator LockAnim9;
+    public Animator LockAnim10;
+    public Animator LockAnim11;
+    public Animator LockAnim12;
+    public GameObject kunci1;
+    public GameObject kunci2;
+    public GameObject kunci3;
+    public GameObject kunci4;
+    public GameObject kunci5;
+    public GameObject kunci6;
+    public GameObject kunci7;
+    public GameObject kunci8;
+    public GameObject kunci9;
+    public GameObject kunci10;
+    public GameObject kunci11;
+    public GameObject kunci12;
 
     private bool isChooseDoor1;
     private bool isChooseDoor2;
@@ -21,11 +46,15 @@ public class PlayerMovement : MonoBehaviour
     private bool isChooseDoor11;
     private bool isChooseDoor12;
 
+    private bool isWalking;
+
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private AudioSource[] audioSource;
 
     private AudioSource knock;
+    public AudioSource walk;
+    public AudioSource unlocked;
 
     public GameObject[] doors;
     public GameObject[] doors1;
@@ -82,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
     {
         audioSource = GetComponents<AudioSource>();
         knock = audioSource[0];
+        isWalking = false;
     }
 
     private void Awake()
@@ -295,6 +325,40 @@ public class PlayerMovement : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
+        {
+            walk.Play();
+        }
+        else
+        {
+            walk.Stop();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow)){
+            walk.Play();
+        }
+        else
+        {
+            walk.Stop();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow)){
+            walk.Play();
+        }
+        else
+        {
+            walk.Stop();
+        }
+
+
+        if (isWalking)
+        {
+            if (!walk.isPlaying)
+                walk.Play();
+        }
+        else
+            walk.Stop();
 
 
         if (PortalScript.IsInLantai == 1)
@@ -2132,6 +2196,9 @@ public class PlayerMovement : MonoBehaviour
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 1
             )
             {
+                LockAnim.Play("unlock");
+                Destroy(kunci1, 2f);
+                unlocked.Play();
                 portal.SetActive(true);
             }
 
@@ -2139,66 +2206,89 @@ public class PlayerMovement : MonoBehaviour
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 2
             )
             {
+
+                LockAnim1.Play("unlock");
+                Destroy(kunci2, 2f);
                 portal2.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 3
             )
             {
+                LockAnim2.Play("unlock");
+                Destroy(kunci3, 2f);
                 portal3.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 4
             )
             {
+                LockAnim3.Play("unlock");
+                Destroy(kunci4, 2f);
                 portal4.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 5
             )
             {
+                LockAnim4.Play("unlock");
+                Destroy(kunci5);
                 portal5.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 6
             )
             {
+                LockAnim5.Play("unlock");
+                Destroy(kunci6, 2f);
                 portal6.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 7
             )
             {
+                LockAnim6.Play("unlock");
+                Destroy(kunci7, 2f);
                 portal7.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 8
             )
             {
+                LockAnim7.Play("unlock");
+                Destroy(kunci8, 2f);
                 portal8.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 9
             )
             {
+                LockAnim8.Play("unlock");
+                Destroy(kunci9, 2f);
                 portal9.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 10
             )
             {
+                LockAnim9.Play("unlock");
+                Destroy(kunci10, 2f);
                 portal10.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 11
             )
             {
+                LockAnim10.Play("unlock");
+                Destroy(kunci11, 2f);
                 portal11.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 12
             )
             {
+                LockAnim11.Play("unlock");
+                Destroy(kunci12, 2f);
                 portal12.SetActive(true);
             }
         }
@@ -2210,6 +2300,9 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
             )
             {
+                LockAnim.Play("unlock");
+                Destroy(kunci1, 2f);
+                unlocked.Play();
                 Debug.Log("sukse");
                 portal.SetActive(true);
             }
@@ -2220,6 +2313,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
             )
             {
+                LockAnim1.Play("unlock");
+                Destroy(kunci2, 2f);
                 portal2.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2228,6 +2323,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
             )
             {
+                LockAnim2.Play("unlock");
+                Destroy(kunci3, 2f);
                 portal3.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2236,6 +2333,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
             )
             {
+                LockAnim3.Play("unlock");
+                Destroy(kunci4, 2f);
                 portal4.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2244,6 +2343,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
             )
             {
+                LockAnim4.Play("unlock");
+                Destroy(kunci5, 2f);
                 portal5.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2252,6 +2353,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
             )
             {
+                LockAnim5.Play("unlock");
+                Destroy(kunci6, 2f);
                 portal6.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2260,6 +2363,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
             )
             {
+                LockAnim6.Play("unlock");
+                Destroy(kunci7, 2f);
                 portal7.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2268,6 +2373,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
             )
             {
+                LockAnim7.Play("unlock");
+                Destroy(kunci8, 2f);
                 portal8.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2276,6 +2383,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
             )
             {
+                LockAnim8.Play("unlock");
+                Destroy(kunci9, 2f);
                 portal9.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2284,6 +2393,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
             )
             {
+                LockAnim9.Play("unlock");
+                Destroy(kunci10, 2f);
                 portal10.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2292,6 +2403,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
             )
             {
+                LockAnim10.Play("unlock");
+                Destroy(kunci11, 2f);
                 portal11.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2301,6 +2414,8 @@ public class PlayerMovement : MonoBehaviour
 
             )
             {
+                LockAnim11.Play("unlock");
+                Destroy(kunci12, 2f);
                 portal12.SetActive(true);
             }
         }
@@ -2314,6 +2429,9 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
             )
             {
+                LockAnim.Play("unlock");
+                Destroy(kunci1, 2f);
+                unlocked.Play();
                 portal.SetActive(true);
             }
 
@@ -2325,6 +2443,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
             )
             {
+                LockAnim1.Play("unlock");
+                Destroy(kunci2, 2f);
                 portal2.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2335,6 +2455,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
             )
             {
+                LockAnim2.Play("unlock");
+                Destroy(kunci3, 2f);
                 portal3.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2345,6 +2467,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
             )
             {
+                LockAnim3.Play("unlock");
+                Destroy(kunci4, 2f);
                 portal4.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2355,6 +2479,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
             )
             {
+                LockAnim4.Play("unlock");
+                Destroy(kunci5, 2f);
                 portal5.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2365,6 +2491,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
             )
             {
+                LockAnim5.Play("unlock");
+                Destroy(kunci6, 2f);
                 portal6.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2375,6 +2503,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
             )
             {
+                LockAnim6.Play("unlock");
+                Destroy(kunci7, 2f);
                 portal7.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2385,6 +2515,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
             )
             {
+                LockAnim7.Play("unlock");
+                Destroy(kunci8, 2f);
                 portal8.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2395,6 +2527,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
             )
             {
+                LockAnim8.Play("unlock");
+                Destroy(kunci9, 2f);
                 portal9.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2405,6 +2539,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
             )
             {
+                LockAnim9.Play("unlock");
+                Destroy(kunci10, 2f);
                 portal10.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2415,6 +2551,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
             )
             {
+                LockAnim10.Play("unlock");
+                Destroy(kunci11, 2f);
                 portal11.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2426,6 +2564,8 @@ public class PlayerMovement : MonoBehaviour
 
             )
             {
+                LockAnim11.Play("unlock");
+                Destroy(kunci12, 2f);
                 portal12.SetActive(true);
             }
         }
@@ -2441,6 +2581,9 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
             )
             {
+                LockAnim.Play("unlock");
+                Destroy(kunci1, 2f);
+                unlocked.Play();
                 portal.SetActive(true);
             }
 
@@ -2454,6 +2597,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
             )
             {
+                LockAnim1.Play("unlock");
+                Destroy(kunci2, 2f);
                 portal2.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2466,6 +2611,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
             )
             {
+                LockAnim2.Play("unlock");
+                Destroy(kunci3, 2f);
                 portal3.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2478,6 +2625,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
             )
             {
+                LockAnim3.Play("unlock");
+                Destroy(kunci4, 2f);
                 portal4.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2490,6 +2639,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
             )
             {
+                LockAnim4.Play("unlock");
+                Destroy(kunci5, 2f);
                 portal5.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2502,6 +2653,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
             )
             {
+                LockAnim5.Play("unlock");
+                Destroy(kunci6, 2f);
                 portal6.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2514,6 +2667,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
             )
             {
+                LockAnim6.Play("unlock");
+                Destroy(kunci7, 2f);
                 portal7.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2526,6 +2681,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
             )
             {
+                LockAnim7.Play("unlock");
+                Destroy(kunci8, 2f);
                 portal8.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2538,6 +2695,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
             )
             {
+                LockAnim8.Play("unlock");
+                Destroy(kunci9, 2f);
                 portal9.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2550,6 +2709,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
             )
             {
+                LockAnim9.Play("unlock");
+                Destroy(kunci10, 2f);
                 portal10.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2562,6 +2723,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
             )
             {
+                LockAnim10.Play("unlock");
+                Destroy(kunci11, 2f);
                 portal11.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2575,6 +2738,8 @@ public class PlayerMovement : MonoBehaviour
 
             )
             {
+                LockAnim11.Play("unlock");
+                Destroy(kunci12, 2f);
                 portal12.SetActive(true);
             }
         }
@@ -2583,15 +2748,18 @@ public class PlayerMovement : MonoBehaviour
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
             GameObject.FindWithTag("door3") == null && GameObject.FindWithTag("door5") == null && PortalScript.IsInLantai == 1
 
-            && GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
+            //&& GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
 
             //&& GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
 
             //&& GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
 
-            //&& GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
+            && GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
             )
             {
+                LockAnim.Play("unlock");
+                Destroy(kunci1, 2f);
+                unlocked.Play();
                 portal.SetActive(true);
             }
 
@@ -2600,13 +2768,15 @@ public class PlayerMovement : MonoBehaviour
 
             //&& GameObject.FindWithTag("door4") == null && GameObject.FindWithTag("door6") == null
 
-            && GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
+            //&& GameObject.FindWithTag("door7") == null && GameObject.FindWithTag("door8") == null
 
-            //&& GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
+            && GameObject.FindWithTag("door9") == null && GameObject.FindWithTag("door10") == null
 
             //&& GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
             )
             {
+                LockAnim1.Play("unlock");
+                Destroy(kunci2, 2f);
                 portal2.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2621,6 +2791,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
             )
             {
+                LockAnim2.Play("unlock");
+                Destroy(kunci3, 2f);
                 portal3.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2635,6 +2807,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
             )
             {
+                LockAnim3.Play("unlock");
+                Destroy(kunci4, 2f);
                 portal4.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2649,6 +2823,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
             )
             {
+                LockAnim4.Play("unlock");
+                Destroy(kunci5, 2f);
                 portal5.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2663,6 +2839,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
             )
             {
+                LockAnim5.Play("unlock");
+                Destroy(kunci6, 2f);
                 portal6.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2677,6 +2855,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
             )
             {
+                LockAnim6.Play("unlock");
+                Destroy(kunci7, 2f);
                 portal7.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2691,6 +2871,8 @@ public class PlayerMovement : MonoBehaviour
             && GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
             )
             {
+                LockAnim7.Play("unlock");
+                Destroy(kunci8, 2f);
                 portal8.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2705,6 +2887,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
             )
             {
+                LockAnim8.Play("unlock");
+                Destroy(kunci9, 2f);
                 portal9.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2719,6 +2903,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
             )
             {
+                LockAnim9.Play("unlock");
+                Destroy(kunci10, 2f);
                 portal10.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2733,6 +2919,8 @@ public class PlayerMovement : MonoBehaviour
             //&& GameObject.FindWithTag("door11") == null && GameObject.FindWithTag("door12") == null
             )
             {
+                LockAnim10.Play("unlock");
+                Destroy(kunci11, 2f);
                 portal11.SetActive(true);
             }
             if (GameObject.FindWithTag("door1") == null && GameObject.FindWithTag("door2") == null &&
@@ -2748,6 +2936,8 @@ public class PlayerMovement : MonoBehaviour
 
             )
             {
+                LockAnim11.Play("unlock");
+                Destroy(kunci12, 2f);
                 portal12.SetActive(true);
             }
         }
