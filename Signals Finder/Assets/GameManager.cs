@@ -46,4 +46,8 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Level5");
     }
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 }

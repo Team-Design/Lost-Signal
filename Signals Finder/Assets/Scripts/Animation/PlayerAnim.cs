@@ -17,6 +17,7 @@ public class PlayerAnim : MonoBehaviour
         if (direction != 0)
         {
             anim.SetBool("Running", true);
+            Debug.Log("Runinng!");
         }
         else
         {
