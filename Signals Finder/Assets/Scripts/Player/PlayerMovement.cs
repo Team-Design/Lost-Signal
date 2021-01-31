@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private AudioSource[] audioSource;
+
+    private AudioSource knock;
 
     public GameObject[] doors;
     public GameObject[] doors1;
@@ -74,6 +77,12 @@ public class PlayerMovement : MonoBehaviour
     public GameObject portal10;
     public GameObject portal11;
     public GameObject portal12;
+
+    void Start()
+    {
+        audioSource = GetComponents<AudioSource>();
+        knock = audioSource[0];
+    }
 
     private void Awake()
     {
@@ -2746,8 +2755,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    
-
     private void OnTriggerStay2D(Collider2D target)
     {
         if (target.tag == "door1")
@@ -2756,6 +2763,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door1").SetActive(false);
                 isChooseDoor1 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door2")
@@ -2764,6 +2772,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door2").SetActive(false);
                 isChooseDoor2 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door3")
@@ -2772,6 +2781,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door3").SetActive(false);
                 isChooseDoor3 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door4")
@@ -2780,6 +2790,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door4").SetActive(false);
                 isChooseDoor4 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door5")
@@ -2788,6 +2799,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door5").SetActive(false);
                 isChooseDoor5 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door6")
@@ -2796,6 +2808,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door6").SetActive(false);
                 isChooseDoor6 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door7")
@@ -2804,6 +2817,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door7").SetActive(false);
                 isChooseDoor7 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door8")
@@ -2812,6 +2826,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door8").SetActive(false);
                 isChooseDoor8 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door9")
@@ -2820,6 +2835,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door9").SetActive(false);
                 isChooseDoor9 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door10")
@@ -2828,6 +2844,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door10").SetActive(false);
                 isChooseDoor10 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door11")
@@ -2836,6 +2853,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door11").SetActive(false);
                 isChooseDoor11 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door12")
@@ -2844,6 +2862,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door12").SetActive(false);
                 isChooseDoor12 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door2dan3")
@@ -2852,6 +2871,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door2dan3").SetActive(false);
                 isChooseDoor2dan3 = true;
+                knock.Play();
             }
         }
         if (target.tag == "door1dan5")
@@ -2860,7 +2880,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameObject.FindWithTag("door1dan5").SetActive(false);
                 isChooseDoor1dan5 = true;
+                knock.Play();
             }
         }
     }
+
 }
